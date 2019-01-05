@@ -9,7 +9,7 @@ Set mostly as a learning exercise this repo contains osl shaders that I have sta
 
 for those of you interested in learning osl
 
-[Open shading language by Imageworks sony (https://github.com/imageworks/OpenShadingLanguage)
+[Open shading language by Imageworks sony](https://github.com/imageworks/OpenShadingLanguage)
 
 [Blendersushi blog post!! super helpful](https://blendersushi.blogspot.com/2013/08/osl-shader-writing-journey-to-unknown.html)
 
