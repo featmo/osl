@@ -1,0 +1,39 @@
+/**
+questionable displacement shader created for the purposes of learning
+implemente in blender's Cycles render engine
+TODO 
+@L33 find out why it works
+Improve noise to make it look more organic
+Test in Arnold/Renderman
+Clean code
+By Moses Eribo
+5/12/2019
+**/
+displacement m_standard_displacement
+(
+    color in_col = color(0,0,0),
+    float seed = 0,
+    float scale = 1,
+    float intensity = 1,
+    point position = P,
+    output color out_col = color(0.5)
+)
+{
+    point p = position;
+    //normalize surface normals??
+    color n_normal = normalize(N);
+
+    /**
+    noise returned as a float value based on 
+    the current point being evaluated
+    **/
+    float m_noise = noise("perlin", p*scale, seed)*intensity;
+
+    /**
+    Multiplying by the normal keeps the displacement along the normal
+    without the outside multiplication displacement veers off along some arbitrary
+    axis, this also creates what i believe is a normal texture i dunno
+    **/
+    color m_displ = (in_col*m_noise)*n_normal; //TODO: find out why this works
+    out_col = m_displ;
+}
